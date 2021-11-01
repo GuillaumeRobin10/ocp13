@@ -65,3 +65,20 @@ Utilisation de PowerShell, comme ci-dessus sauf :
 
 - Pour activer l'environnement virtuel, `.\venv\Scripts\Activate.ps1` 
 - Remplacer `which <my-command>` par `(Get-Command <my-command>).Path`
+
+### Déploiement
+
+Le déploiement du site sur Heroku demande de remplir plusieurs critères:
+
+- Avoir un compte Heroku
+- Avoir un compte Sentry
+- Avoir un compte CircleCI
+- Effectuer un pipeline sur CircleCI :
+    - Etre membre autorisé du pipeline sur projet pour ce repo
+    - Configurer les variables d'environnement suivantes :
+    - HEROKU_TOKEN : Clé d'API du compte Heroku
+    - DSN : Pour avoir une surveillance des données depuis Sentry
+    - SECRET_KEY : la clé d'encodage de Django
+    - ALLOWED_HOSTS : 'localhost,0.0.0.0,127.0.0.1,oc-lettings-6.herokuapp.com'
+    - DEBUG : False
+- Push sur la branche master pour déploiement
