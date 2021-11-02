@@ -19,18 +19,14 @@ sentry_sdk.init(
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+env = environ.Env()
+environ.Env.read_env(env_file=str(BASE_DIR / 'oc_lettings_site' / '.env'))
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
+SECRET_KEY = env("SECRET_KEY")
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'fp$9^593hsriajg$_%=5trot9g!1qa@ew(o-1#@=&4%=hp46(s'
+ALLOWED_HOSTS = env.list("ALLOWED_HOSTS")
 
-# SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
-ALLOWED_HOSTS = ["localhost", "0.0.0.0", "127.0.0.1", "ocp13.herokuapp.com"]
-
 
 # Application definition
 
