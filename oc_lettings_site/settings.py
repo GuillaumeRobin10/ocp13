@@ -1,5 +1,6 @@
 import os
 import sentry_sdk
+import environ
 from sentry_sdk.integrations.django import DjangoIntegration
 
 sentry_sdk.init(
