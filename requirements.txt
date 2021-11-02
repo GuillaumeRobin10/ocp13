@@ -5,4 +5,3 @@ six
 gunicorn==20.1.0
 whitenoise
 sentry-sdk
-python-environ
